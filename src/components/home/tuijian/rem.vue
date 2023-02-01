@@ -4,7 +4,7 @@
       <h2>编辑推荐</h2>
     </div>
     <div class="content">
-      <van-row gutter="3">
+      <van-row gutter="2">
         <van-col span="8" v-for="item in dt" :key="item.id">
           <div class="item">
             <img
@@ -56,7 +56,11 @@ export default {
 </script>
 
 <style lang="less">
+.rem{
+  padding-top: 0.8rem;
+  padding-bottom: 0.4rem;
 .title {
+  padding-top: 0.4rem;
   h2 {
     height: 0.4rem;
     padding-left: 9px;
@@ -95,5 +99,6 @@ export default {
   min-height: 30px;
   line-height: 1.2;
   box-sizing: border-box;
+}
 }
 </style>
