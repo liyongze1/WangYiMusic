@@ -1,29 +1,35 @@
 <template>
-  <div class="newMusic">
-    <h2>最新音乐</h2>
-    <ul>
-      <li class="list_box" v-for="item in dt" :key="item.id">
-        <div class="sgchfl">
-          <p class="subject">
-            {{ item.name
-            }}<span v-for="(it, index) in item.song.alias" :key="index">{{
-              it
-            }}</span>
-          </p>
-          <p class="author">
-            <span v-for="(userName,index) in item.song.artists" :key="userName.id">{{
-              userName.name
-            }}
-            <!--判断是否添加标签 -->
-            <i v-if="index!=item.song.artists.length-1"> / </i></span
-            > - <span>{{ item.name }}</span>
-          </p>
-        </div>
-        <div class="play_icon">
-          <span class="i"></span>
-        </div>
-      </li>
-    </ul>
+  <div>
+    <div class="newMusic">
+      <h2>最新音乐</h2>
+      <ul>
+        <li v-for="item in dt" :key="item.id">
+          <router-link :to="'/Song/'+item.id+'/'+item.name" class="list_box">
+            <div class="sgchfl">
+              <p class="subject">
+                {{ item.name
+                }}<span v-for="(it, index) in item.song.alias" :key="index">{{
+                  it
+                }}</span>
+              </p>
+              <p class="author">
+                <span
+                  v-for="(userName, index) in item.song.artists"
+                  :key="userName.id"
+                  >{{ userName.name }}
+                  <!--判断是否添加标签 -->
+                  <i v-if="index != item.song.artists.length - 1"> / </i></span
+                >
+                - <span>{{ item.name }}</span>
+              </p>
+            </div>
+            <div class="play_icon">
+              <span class="i"></span>
+            </div>
+          </router-link>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -95,13 +101,12 @@ export default {
         font-size: 17px;
         color: #333333;
       }
-      
     }
   }
   .author {
-        font-size: 13px;
-        color: #888888; 
-      }
+    font-size: 13px;
+    color: #888888;
+  }
   .play_icon {
     align-items: flex-end;
     padding: 0 0.2rem;

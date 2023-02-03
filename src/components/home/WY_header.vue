@@ -35,12 +35,15 @@ export default {};
     justify-content: Space-between;
   }
   .left {
+    margin-left: 0.1rem;
     span {
       font-size: 20px;
       font-weight: 400;
     }
+
   }
   .right {
+    margin-right: 0.1rem;
     height: 1.68rem;
     line-height: 1.4rem;
   }

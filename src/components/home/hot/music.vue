@@ -1,25 +1,12 @@
 <template>
   <div class="box">
     <hotMusic></hotMusic>
-    <div class="hot_music_box" v-for="(item, index) in hotMc" :key="item.id">
-      <div class="list_box">
-        <div :class="{serial:true,cl:index+1<4}">
-          {{ index + 1 > 9 ? index + 1 : "0" + (index + 1) }}
-        </div>
-        <div class="sgchfl">
-          <!-- 歌曲名称 -->
-          <p class="subject">{{ item.name }}</p>
-          <!-- 作者 -->
-          <span class="author" v-for="(it, index) in item.ar" :key="it.id">
-            <i class="ele">{{ it.name }}</i>
-            <i v-if="index != item.ar.length - 1"> / </i> </span
-          >-<span>{{ item.al.name }}</span>
-        </div>
-        <div class="play_icon">
-          <span class="i"></span>
-        </div>
-      </div>
-    </div>
+    <!-- 公共组件 -->
+    <music_list :list="hotMc" :is-show="false">
+        <template v-slot:code="obj">
+          <div class="number">{{ obj.index + 1 }}</div>
+        </template>
+      </music_list>
     <div class="download">
       <router-link to="/downlad" class="dw"> 查看完整榜单 ></router-link>
     </div>
@@ -27,9 +14,10 @@
 </template>
 
 <script>
+import music_list from '@/components/Music_list.vue';
 import hotMusic from './hotMusic.vue';
 export default {
-  components: { hotMusic },
+  components: { hotMusic,music_list},
   data() {
     return {
       hotMc: [],

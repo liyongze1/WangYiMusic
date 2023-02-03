@@ -21,14 +21,16 @@ module.exports = defineConfig({
         "^/foo":""
         }
       },
-      // 
-      // '/too':{
-      //   target:"https://interface.music.163.com",
-      //   ws: true,
-      //   changeOrigin: true,
-      //   pathRewrite:{//路径重写
-      //   "^/too":""
-      //  }
+      // 音乐播放接口
+      '/xoo':{
+        target:'https://music.163.com',
+        ws:true,
+        changeOrigin: true,
+        pathRewrite:{//路径重写
+        "^/xoo":""
+        }
+      }
+
     }
   }
   
